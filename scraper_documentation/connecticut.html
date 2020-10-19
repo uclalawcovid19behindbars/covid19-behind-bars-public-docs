@@ -1,40 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Arizona COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Connecticut COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for arizona_scraper"><tr><td>arizona_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for connecticut_scraper"><tr><td>connecticut_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general Arizona COVID data</h2>
+<h2>Scraper class for general Connecticut COVID data</h2>
 
 <h3>Description</h3>
 
-<p>HTML table scraping of semi structured data. The information
-that we care about are located in the html tables located at position 2 for 
-residents and 3 for staff. Should be checked regularly for changing format.
-Note that historically data for number of residents confirmed has been
-less than number recovered. Since the number of individuals being released
-is not reproted this may contribute to the difference.
+<p>This will be a description of Connecticut data and what the scraper
+does
 </p>
 
 <dl>
-<dt>Location</dt><dd><p>The facility name.</p>
+<dt>Name</dt><dd><p>The facility name.</p>
 </dd>
-<dt>Inmates Tested</dt><dd><p>Likely cummulative number of inmates tested.</p>
+<dt>Total Positives</dt><dd><p>Residents positives</p>
 </dd>
-<dt>Inmates Negative</dt><dd><p>Likely cummulative number of inmates negative.</p>
+<dt>Offenders Recovered</dt><dd><p>Residents recovered</p>
 </dd>
-<dt>Inmates Confirmed</dt><dd><p>Likely cummulative number of inmates confirmed.</p>
+<dt>Offenders in Hospital</dt><dd><p>Residents who are in the hospital not neccisarily quarantine</p>
 </dd>
-<dt>Inmates Pending</dt><dd><p>Current number of inmates pending.</p>
-</dd>
-<dt>Inmates Recovered</dt><dd><p>Likely cummulative number of inmates recovered.</p>
-</dd>
-<dt>Daily Total Population</dt><dd><p>Resdient population.</p>
-</dd>
-<dt>Inmates Confirmed Deaths</dt><dd><p>Resident death occured w/confirmed status.</p>
-</dd>
-<dt>Inmates Potential Deaths</dt><dd><p>Resident death but no confirmed status.</p>
+<dt>Offenders Deaths</dt><dd><p>Residents who have died with some connection to covid-19</p>
 </dd>
 </dl>
 
@@ -42,13 +30,13 @@ is not reproted this may contribute to the difference.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Tested, Residents.Negative, Residents.Confirmed, Residents.Pending, Residents.Recovered, Residents.Population, Staff.Confirmed, Staff.Recovered, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine
+<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>arizona_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>connecticut_scraper</code>
 </p>
 
 
@@ -60,10 +48,10 @@ is not reproted this may contribute to the difference.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>arizona_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>connecticut_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>arizona_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>connecticut_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -113,16 +101,16 @@ is not reproted this may contribute to the difference.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>arizona_scraper$new(
+<div class="r"><pre>connecticut_scraper$new(
   log,
  
-    url = "https://corrections.az.gov/adcrr-covid-19-dashboard?order=title_field&amp;sort=asc",
-  id = "arizona",
-  type = "html",
-  state = "AZ",
-  pull_func = arizona_pull,
-  restruct_func = arizona_restruct,
-  extract_func = arizona_extract
+    url = "https://portal.ct.gov/DOC/Common-Elements/Common-Elements/Health-Information-and-Advisories",
+  id = "connecticut",
+  type = "img",
+  state = "CT",
+  pull_func = connecticut_pull,
+  restruct_func = connecticut_restruct,
+  extract_func = connecticut_extract
 )</pre></div>
 
 
@@ -139,7 +127,7 @@ is not reproted this may contribute to the difference.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>arizona_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>connecticut_scraper$clone(deep = FALSE)</pre></div>
 
 
 
