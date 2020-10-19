@@ -1,28 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Connecticut COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general New Hampshire COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for connecticut_scraper"><tr><td>connecticut_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for new_hampshire_scraper"><tr><td>new_hampshire_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general Connecticut COVID data</h2>
+<h2>Scraper class for general New Hampshire COVID data</h2>
 
 <h3>Description</h3>
 
-<p>CT stores information within tables in images. The image
-information appears to be consistent making OCR possible.
+<p>NH has two tables one for residents and one for staff. The info
+provided is minimal but fairly easy to scrape. Both number tested and 
+confirmed for staff and residents appear to be individuals confirmed
+and tested rather than tests administered and tests that were positive.
 </p>
 
 <dl>
 <dt>Name</dt><dd><p>The facility name.</p>
 </dd>
-<dt>Total Positives</dt><dd><p>Residents positives</p>
+<dt>Num Staff Positive</dt><dd><p>The staff number testing positive</p>
 </dd>
-<dt>Offenders Recovered</dt><dd><p>Residents recovered</p>
+<dt>Num Residents tested</dt><dd><p>Not the number of tests administered</p>
 </dd>
-<dt>Offenders in Hospital</dt><dd><p>Residents who are in the hospital not neccisarily quarantine</p>
+<dt>Num Residents Positive</dt><dd><p>Number of residents confirmed</p>
 </dd>
-<dt>Offenders Deaths</dt><dd><p>Residents who have died with some connection to covid-19</p>
+<dt>NHDOC Staff</dt><dd><p>State wide staff population</p>
 </dd>
 </dl>
 
@@ -30,13 +32,13 @@ information appears to be consistent making OCR possible.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Staff.Confirmed, Residents.Tested, Residents.Confirmed, State, Date. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>connecticut_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>new_hampshire_scraper</code>
 </p>
 
 
@@ -48,10 +50,10 @@ information appears to be consistent making OCR possible.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>connecticut_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>new_hampshire_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>connecticut_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>new_hampshire_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -101,16 +103,15 @@ information appears to be consistent making OCR possible.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>connecticut_scraper$new(
+<div class="r"><pre>new_hampshire_scraper$new(
   log,
- 
-    url = "https://portal.ct.gov/DOC/Common-Elements/Common-Elements/Health-Information-and-Advisories",
-  id = "connecticut",
-  type = "img",
-  state = "CT",
-  pull_func = connecticut_pull,
-  restruct_func = connecticut_restruct,
-  extract_func = connecticut_extract
+  url = "https://www.nh.gov/nhdoc/covid/index.html",
+  id = "new_hampshire",
+  type = "html",
+  state = "NH",
+  pull_func = new_hampshire_pull,
+  restruct_func = new_hampshire_restruct,
+  extract_func = new_hampshire_extract
 )</pre></div>
 
 
@@ -127,7 +128,7 @@ information appears to be consistent making OCR possible.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>connecticut_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>new_hampshire_scraper$clone(deep = FALSE)</pre></div>
 
 
 
