@@ -35,7 +35,7 @@ collected are sometimes fickle.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-15 and contained the extracted columns: Name, Staff.Confirmed, Staff.Deaths, Staff.Recovered, Residents.Quarantine, Residents.Confirmed, Residents.Deaths, Residents.Recovered, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Staff.Confirmed, Staff.Deaths, Staff.Recovered, Residents.Quarantine, Residents.Confirmed, Residents.Deaths, Residents.Recovered, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population
 </p>
 
 
@@ -108,8 +108,7 @@ collected are sometimes fickle.
 
 <div class="r"><pre>ohio_scraper$new(
   log,
-  url = str_c("https://coronavirus.ohio.gov/static/reports/",
-    "DRCCOVID-19Information.pdf"),
+  url = "https://coronavirus.ohio.gov/static/reports/DRCCOVID-19Information.pdf",
   id = "ohio",
   type = "pdf",
   state = "OH",

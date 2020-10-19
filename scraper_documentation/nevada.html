@@ -1,33 +1,41 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general North Carolina COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general nevada COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for north_carolina_scraper"><tr><td>north_carolina_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for nevada_scraper"><tr><td>nevada_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general North Carolina COVID data</h2>
+<h2>Scraper class for general nevada COVID data</h2>
 
 <h3>Description</h3>
 
-<p>NC has data in an isolated html table which requires minimal
-cleaning. Guidelines and definitions for facilities are found here
-https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-covid-19
+<p>The NV Scraper works with a standalone Microsoft Power BI
+app and extracts data from all facilities listed as correctional by saving
+a copy of the html after selecting a single facility. Because an html
+document is saved for every selection the 'raw' data is simply an html
+file which embeds each of these saved html files as an iframe. The scraper
+is not very robust to changes in the names of labels and as such should be
+accurate but sensitive to changes to the design of the app. On several
+occasions data for the number of residents confirmed has been less than the
+number of residents recovered which should not happen in our own records.
+Note that the dashboard also contains information on facilities other than
+for incarcerated populations.
 </p>
 
 <dl>
-<dt>Facility</dt><dd><p>The facility name</p>
+<dt>Facility Name</dt><dd><p>The facility name</p>
 </dd>
-<dt>CumulativeOffenderTests</dt><dd><p>All tests</p>
+<dt>Residents Confirmed</dt><dd><p>Sometimes can be less than recovered</p>
 </dd>
-<dt>OffendersTested</dt><dd><p>Number of individuals tested</p>
+<dt>Residents Recoveries</dt><dd><p>Individuals recovered from COVID-19</p>
 </dd>
-<dt>Positive</dt><dd><p>Individuals positive, probably not cumulative as confirmed is sometimes less than recovered</p>
+<dt>Residents Deaths</dt><dd><p>Resident deaths</p>
 </dd>
-<dt>Negative</dt><dd><p>Individuals Negative</p>
+<dt>Staff Confirmed</dt><dd><p>Sometimes can be less than recovered</p>
 </dd>
-<dt>PresumedRecovered</dt><dd><p>presumed recovered following NCDHHS guidance</p>
+<dt>Staff Recoveries</dt><dd><p>Individuals recovered from COVID-19</p>
 </dd>
-<dt>ActiveCases</dt><dd><p>Active residents with infection who are also quarantined</p>
+<dt>Staff Deaths</dt><dd><p>Staff deaths</p>
 </dd>
 </dl>
 
@@ -35,13 +43,13 @@ https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-cov
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Negative, Residents.Recovered, Residents.Quarantine, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Deaths, Staff.Confirmed, Staff.Recovered, Staff.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>north_carolina_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>nevada_scraper</code>
 </p>
 
 
@@ -53,10 +61,10 @@ https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-cov
 
 
 <ul>
-<li> <p><a href="#method-new"><code>north_carolina_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>nevada_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>north_carolina_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>nevada_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -106,15 +114,15 @@ https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-cov
 
 <h5>Usage</h5>
 
-<div class="r"><pre>north_carolina_scraper$new(
+<div class="r"><pre>nevada_scraper$new(
   log,
-  url = "https://opus.doc.state.nc.us/DOPCovid19Stats/services/facilitystatsServlet",
-  id = "north_carolina",
+  url = "http://doc.nv.gov/About/Press_Release/covid19_updates/",
+  id = "nevada",
   type = "html",
-  state = "NC",
-  pull_func = north_carolina_pull,
-  restruct_func = north_carolina_restruct,
-  extract_func = north_carolina_extract
+  state = "NV",
+  pull_func = nevada_pull,
+  restruct_func = nevada_restruct,
+  extract_func = nevada_extract
 )</pre></div>
 
 
@@ -131,7 +139,7 @@ https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-cov
 
 <h5>Usage</h5>
 
-<div class="r"><pre>north_carolina_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>nevada_scraper$clone(deep = FALSE)</pre></div>
 
 
 
