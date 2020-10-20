@@ -1,22 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general NY statewide COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Kentucky COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for new_york_statewide_scraper"><tr><td>new_york_statewide_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for kentucky_scraper"><tr><td>kentucky_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general NY statewide COVID data</h2>
+<h2>Scraper class for general Kentucky COVID data</h2>
 
 <h3>Description</h3>
 
-<p>NY only produces staff data at the state level within the
-html of the site. Data is scrapped from tables.
+<p>KY data is hosted on an image on the url but only contains
+information about confirmed and deaths, no testing. More information about
+transfers and recoveries is sometimes embedded in the text of the website
+but it is inconsistent.
 </p>
 
 <dl>
-<dt>Staff Deaths</dt><dd><p>Staff Deaths</p>
+<dt>Institution</dt><dd><p>The facility name</p>
 </dd>
-<dt>Staff Confirmed</dt><dd><p>Staff Confirmed</p>
+<dt>Staff</dt><dd><p>staff confirmed</p>
+</dd>
+<dt>Staff Deaths</dt><dd><p>Staff deaths</p>
+</dd>
+<dt>Inmates</dt><dd><p>Residents confirmed</p>
+</dd>
+<dt>Inmates Deaths</dt><dd><p>Resident deaths</p>
 </dd>
 </dl>
 
@@ -24,13 +32,13 @@ html of the site. Data is scrapped from tables.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Staff.Confirmed, Name, Staff.Deaths, State, Date. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Staff.Confirmed, Staff.Deaths, Residents.Confirmed, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>new_york_statewide_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>kentucky_scraper</code>
 </p>
 
 
@@ -42,10 +50,10 @@ html of the site. Data is scrapped from tables.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>new_york_statewide_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>kentucky_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>new_york_statewide_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>kentucky_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -95,15 +103,15 @@ html of the site. Data is scrapped from tables.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>new_york_statewide_scraper$new(
+<div class="r"><pre>kentucky_scraper$new(
   log,
-  url = "https://doccs.ny.gov/doccs-covid-19-report",
-  id = "new_york_statewide",
-  type = "html",
-  state = "NY",
-  pull_func = new_york_statewide_pull,
-  restruct_func = new_york_statewide_restruct,
-  extract_func = new_york_statewide_extract
+  url = "https://corrections.ky.gov/Facilities/Pages/covid19.aspx",
+  id = "kentucky",
+  type = "img",
+  state = "KY",
+  pull_func = kentucky_pull,
+  restruct_func = kentucky_restruct,
+  extract_func = kentucky_extract
 )</pre></div>
 
 
@@ -120,7 +128,7 @@ html of the site. Data is scrapped from tables.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>new_york_statewide_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>kentucky_scraper$clone(deep = FALSE)</pre></div>
 
 
 

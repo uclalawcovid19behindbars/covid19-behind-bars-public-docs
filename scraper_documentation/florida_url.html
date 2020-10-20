@@ -1,36 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general NY statewide COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Florida COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for new_york_statewide_scraper"><tr><td>new_york_statewide_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for florida_url_scraper"><tr><td>florida_url_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general NY statewide COVID data</h2>
+<h2>Scraper class for general Florida COVID data</h2>
 
 <h3>Description</h3>
 
-<p>NY only produces staff data at the state level within the
-html of the site. Data is scrapped from tables.
+<p>Florida has an html table for reporting results at the facilty
+level which has been consistent but they have recently stopped reporting
+facility level deaths. The death data is now reported weekly in a table
+further down on the web page.
 </p>
 
 <dl>
-<dt>Staff Deaths</dt><dd><p>Staff Deaths</p>
+<dt>Facility</dt><dd><p>The faciilty name.</p>
 </dd>
-<dt>Staff Confirmed</dt><dd><p>Staff Confirmed</p>
-</dd>
+<dt>Resident Security Quarantine</dt><dd></dd>
+<dt>Resident Medical Quarantine</dt><dd></dd>
+<dt>Resident Medical Isolation</dt><dd></dd>
+<dt>Resident Pending Tests</dt><dd></dd>
+<dt>Resident Negative Tests</dt><dd></dd>
+<dt>Resident Positive Tests</dt><dd></dd>
+<dt>Staff Positive Tests</dt><dd></dd>
 </dl>
 
 
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Staff.Confirmed, Name, Staff.Deaths, State, Date. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Residents.Pending, Residents.Negative, Residents.Confirmed, Staff.Confirmed, Residents.Deaths, Residents.Quarantine, State, Date. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>new_york_statewide_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>florida_url_scraper</code>
 </p>
 
 
@@ -42,10 +49,10 @@ html of the site. Data is scrapped from tables.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>new_york_statewide_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>florida_url_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>new_york_statewide_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>florida_url_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -95,15 +102,15 @@ html of the site. Data is scrapped from tables.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>new_york_statewide_scraper$new(
+<div class="r"><pre>florida_url_scraper$new(
   log,
-  url = "https://doccs.ny.gov/doccs-covid-19-report",
-  id = "new_york_statewide",
+  url = "http://www.dc.state.fl.us/comm/covid-19.html",
+  id = "florida_url",
   type = "html",
-  state = "NY",
-  pull_func = new_york_statewide_pull,
-  restruct_func = new_york_statewide_restruct,
-  extract_func = new_york_statewide_extract
+  state = "FL",
+  pull_func = xml2::read_html,
+  restruct_func = florida_url_restruct,
+  extract_func = florida_url_extract
 )</pre></div>
 
 
@@ -120,7 +127,7 @@ html of the site. Data is scrapped from tables.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>new_york_statewide_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>florida_url_scraper$clone(deep = FALSE)</pre></div>
 
 
 
