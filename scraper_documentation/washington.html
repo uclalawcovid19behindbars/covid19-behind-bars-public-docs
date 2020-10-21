@@ -1,34 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general wisconsin COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general washington COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for wisconsin_scraper"><tr><td>wisconsin_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for washington_scraper"><tr><td>washington_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general wisconsin COVID data</h2>
+<h2>Scraper class for general washington COVID data</h2>
 
 <h3>Description</h3>
 
-<p>WI comes from a tableau table which is downloaded as a pdf.
-Currently the downloading of this pdf is done on a private server run by
-marquezn at law.ucla.edu because of RSelenium requirements. This should be
-changed when a dedicated server is built. 
+<p>WA has a number of html tables on their page with both facility
+specific and state-wide information.
 </p>
 
 <dl>
-<dt>Facility_Name</dt><dd><p>The facility name.</p>
+<dt>Residents Number Confirmed Cases</dt><dd><p>Facility specific</p>
 </dd>
-<dt>Positive tests</dt><dd><p>Cumulative positive test count for residents.</p>
+<dt>Residents Number of Deaths</dt><dd><p>Facility specific</p>
 </dd>
-<dt>Negative tests</dt><dd><p>Cumulative negative test count for residents.</p>
+<dt>Resident Active cases</dt><dd><p>state-wide</p>
 </dd>
-<dt>Total tests</dt><dd><p>Cumulative tests administered for residents.</p>
+<dt>Resident recovered cases</dt><dd><p>state-wide</p>
 </dd>
-<dt>Released Positive Cases</dt><dd><p>Cumulative residents released while positive.</p>
+<dt>Resident age</dt><dd><p>state wide</p>
 </dd>
-<dt>Active Positive Cases</dt><dd><p>Residents with active cases.</p>
+<dt>Resident confirmed age</dt><dd><p>state wide</p>
 </dd>
-<dt>Inactive Positive Cases</dt><dd><p>Residents recovered but the wording changed 10/9 from recovered to inactive.</p>
+<dt>Resident race</dt><dd><p>state wide</p>
+</dd>
+<dt>Resident confirmed race</dt><dd><p>state wide</p>
+</dd>
+<dt>Resident ethicity</dt><dd><p>state wide</p>
+</dd>
+<dt>Resident confirmed ethnicity</dt><dd><p>state wide</p>
+</dd>
+<dt>Resident confirmed in regional care</dt><dd><p>facility specific</p>
+</dd>
+<dt>Resident quarantined/isolated</dt><dd><p>state wide</p>
+</dd>
+<dt>Staff Number Confirmed Cases</dt><dd><p>Facility specific</p>
+</dd>
+<dt>Staff Number of Deaths</dt><dd><p>Facility specific</p>
 </dd>
 </dl>
 
@@ -36,13 +48,13 @@ changed when a dedicated server is built.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Residents.Confirmed, Residents.Negative, Residents.Tested, Residents.Recovered, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Residents.Tested, Residents.Negative, Residents.Pending, Name, Residents.Quarantine, Staff.Confirmed, Staff.Deaths, Residents.Confirmed, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Recovered, Residents.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>wisconsin_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>washington_scraper</code>
 </p>
 
 
@@ -54,10 +66,10 @@ changed when a dedicated server is built.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>wisconsin_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>washington_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>wisconsin_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>washington_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -107,16 +119,15 @@ changed when a dedicated server is built.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>wisconsin_scraper$new(
+<div class="r"><pre>washington_scraper$new(
   log,
- 
-    url = "https://doc.wi.gov/Pages/COVID19%28Coronavirus%29/COVID19TestingDashboard.aspx",
-  id = "wisconsin",
-  type = "pdf",
-  state = "WI",
-  pull_func = wisconsin_pull,
-  restruct_func = wisconsin_restruct,
-  extract_func = wisconsin_extract
+  url = "https://www.doc.wa.gov/corrections/covid-19/data.htm",
+  id = "washington",
+  type = "html",
+  state = "WA",
+  pull_func = washington_pull,
+  restruct_func = washington_restruct,
+  extract_func = washington_extract
 )</pre></div>
 
 
@@ -133,7 +144,7 @@ changed when a dedicated server is built.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>wisconsin_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>washington_scraper$clone(deep = FALSE)</pre></div>
 
 
 

@@ -9,27 +9,9 @@
 
 <h3>Description</h3>
 
-<p>HTML scraping from a pseudo-table like object. This is really
-weird to scrape from and the code should be more fail safe.
+<p>Scraper needs to be rewritten to accomadet new structure of the
+data.
 </p>
-
-<dl>
-<dt>Institution</dt><dd></dd>
-<dt>Number of Positive Inmates</dt><dd><p>NOT Cumulative!</p>
-</dd>
-<dt>Number of Hospitalized Inmates</dt><dd></dd>
-<dt>Number of Recovered Inmates 3</dt><dd></dd>
-<dt>Number of Inmate Deaths Possibly Related to COVID-19 4</dt><dd></dd>
-<dt>Number of Confirmed COVID-19 Related Inmate Deaths</dt><dd></dd>
-<dt>Number of Inmates in Quarantine</dt><dd></dd>
-<dt>Housing Type (cell, open bay, combo)</dt><dd></dd>
-<dt>Number of Inmates in Isolation</dt><dd></dd>
-<dt>Number of Staff Currently Reporting Positive Tests 5</dt><dd><p>NOT Cumulative!</p>
-</dd>
-<dt>Number of Recovered Staff 5</dt><dd></dd>
-<dt>Number of Staff Deaths Possibly Related to COVID-19</dt><dd></dd>
-</dl>
-
 
 
 <h3>Details</h3>
@@ -111,7 +93,7 @@ weird to scrape from and the code should be more fail safe.
   id = "oklahoma",
   state = "OK",
   type = "html",
-  pull_func = xml2::read_html,
+  pull_func = function(x) NULL,
   restruct_func = oklahoma_restruct,
   extract_func = oklahoma_extract
 )</pre></div>

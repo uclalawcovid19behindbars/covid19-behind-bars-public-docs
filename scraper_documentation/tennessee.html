@@ -1,34 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general wisconsin COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Tennessee COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for wisconsin_scraper"><tr><td>wisconsin_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for tennessee_scraper"><tr><td>tennessee_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general wisconsin COVID data</h2>
+<h2>Scraper class for general Tennessee COVID data</h2>
 
 <h3>Description</h3>
 
-<p>WI comes from a tableau table which is downloaded as a pdf.
-Currently the downloading of this pdf is done on a private server run by
-marquezn at law.ucla.edu because of RSelenium requirements. This should be
-changed when a dedicated server is built. 
+<p>Data is pulled from a pdf at a static location that is
+updated. We need to find better documentation on what variables mean.
 </p>
 
 <dl>
-<dt>Facility_Name</dt><dd><p>The facility name.</p>
+<dt>Location</dt><dd><p>The facility name</p>
 </dd>
-<dt>Positive tests</dt><dd><p>Cumulative positive test count for residents.</p>
+<dt>Residents Tested</dt><dd><p>Tests administred not actually residents tested</p>
 </dd>
-<dt>Negative tests</dt><dd><p>Cumulative negative test count for residents.</p>
+<dt>Residents Positive</dt><dd><p>Seems to be active rather than cumulative positive</p>
 </dd>
-<dt>Total tests</dt><dd><p>Cumulative tests administered for residents.</p>
+<dt>Residents Negative</dt><dd><p>Negative tests not residents negative</p>
 </dd>
-<dt>Released Positive Cases</dt><dd><p>Cumulative residents released while positive.</p>
+<dt>Residents Pending</dt><dd><p>Residents currently pending</p>
 </dd>
-<dt>Active Positive Cases</dt><dd><p>Residents with active cases.</p>
+<dt>Residents Recovered</dt><dd><p>Residents recovered</p>
 </dd>
-<dt>Inactive Positive Cases</dt><dd><p>Residents recovered but the wording changed 10/9 from recovered to inactive.</p>
+<dt>Residents Deaths</dt><dd><p>Residents deaths</p>
+</dd>
+<dt>Staff confirmed</dt><dd><p>cant tell if cumulative</p>
+</dd>
+<dt>Staff returned to work</dt><dd><p>seems to be recovered</p>
+</dd>
+<dt>Staff Deaths</dt><dd><p>Staff deaths</p>
 </dd>
 </dl>
 
@@ -36,13 +40,13 @@ changed when a dedicated server is built.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Residents.Confirmed, Residents.Negative, Residents.Tested, Residents.Recovered, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Tested, Residents.Confirmed, Residents.Negative, Residents.Pending, Residents.Recovered, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>wisconsin_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>tennessee_scraper</code>
 </p>
 
 
@@ -54,10 +58,10 @@ changed when a dedicated server is built.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>wisconsin_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>tennessee_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>wisconsin_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>tennessee_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -107,16 +111,15 @@ changed when a dedicated server is built.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>wisconsin_scraper$new(
+<div class="r"><pre>tennessee_scraper$new(
   log,
- 
-    url = "https://doc.wi.gov/Pages/COVID19%28Coronavirus%29/COVID19TestingDashboard.aspx",
-  id = "wisconsin",
+  url = "https://www.tn.gov/content/dam/tn/correction/documents/TDOCInmatesCOVID19.pdf",
+  id = "tennessee",
   type = "pdf",
-  state = "WI",
-  pull_func = wisconsin_pull,
-  restruct_func = wisconsin_restruct,
-  extract_func = wisconsin_extract
+  state = "TN",
+  pull_func = tennessee_pull,
+  restruct_func = tennessee_restruct,
+  extract_func = tennessee_extract
 )</pre></div>
 
 
@@ -133,7 +136,7 @@ changed when a dedicated server is built.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>wisconsin_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>tennessee_scraper$clone(deep = FALSE)</pre></div>
 
 
 

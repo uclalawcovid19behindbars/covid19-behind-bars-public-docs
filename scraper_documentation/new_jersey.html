@@ -1,34 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general wisconsin COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general new_jersey COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for wisconsin_scraper"><tr><td>wisconsin_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for new_jersey_scraper"><tr><td>new_jersey_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general wisconsin COVID data</h2>
+<h2>Scraper class for general new_jersey COVID data</h2>
 
 <h3>Description</h3>
 
-<p>WI comes from a tableau table which is downloaded as a pdf.
-Currently the downloading of this pdf is done on a private server run by
-marquezn at law.ucla.edu because of RSelenium requirements. This should be
-changed when a dedicated server is built. 
+<p>NJ reports data in multiple tables depending on phases. Within
+each table is the cumulative coiunt for that phase. We loop through all
+tables and sum to get the sumn of all phases.
 </p>
 
 <dl>
-<dt>Facility_Name</dt><dd><p>The facility name.</p>
+<dt>Facility_Name</dt><dd><p>The facility name</p>
 </dd>
-<dt>Positive tests</dt><dd><p>Cumulative positive test count for residents.</p>
+<dt>Employees</dt><dd><p>Staff.Confirmed</p>
 </dd>
-<dt>Negative tests</dt><dd><p>Cumulative negative test count for residents.</p>
+<dt>Inmates</dt><dd><p>Resident cumulative Confirmed</p>
 </dd>
-<dt>Total tests</dt><dd><p>Cumulative tests administered for residents.</p>
-</dd>
-<dt>Released Positive Cases</dt><dd><p>Cumulative residents released while positive.</p>
-</dd>
-<dt>Active Positive Cases</dt><dd><p>Residents with active cases.</p>
-</dd>
-<dt>Inactive Positive Cases</dt><dd><p>Residents recovered but the wording changed 10/9 from recovered to inactive.</p>
+<dt>Inmates deaths</dt><dd><p>Resident cumulative deaths</p>
 </dd>
 </dl>
 
@@ -36,13 +29,13 @@ changed when a dedicated server is built.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Residents.Confirmed, Residents.Negative, Residents.Tested, Residents.Recovered, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-20 and contained the extracted columns: Name, Staff.Confirmed, Residents.Confirmed, Residents.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>wisconsin_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>new_jersey_scraper</code>
 </p>
 
 
@@ -54,10 +47,10 @@ changed when a dedicated server is built.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>wisconsin_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>new_jersey_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>wisconsin_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>new_jersey_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -107,16 +100,15 @@ changed when a dedicated server is built.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>wisconsin_scraper$new(
+<div class="r"><pre>new_jersey_scraper$new(
   log,
- 
-    url = "https://doc.wi.gov/Pages/COVID19%28Coronavirus%29/COVID19TestingDashboard.aspx",
-  id = "wisconsin",
-  type = "pdf",
-  state = "WI",
-  pull_func = wisconsin_pull,
-  restruct_func = wisconsin_restruct,
-  extract_func = wisconsin_extract
+  url = "https://www.state.nj.us/corrections/pages/COVID19Updates.shtml",
+  id = "new_jersey",
+  type = "html",
+  state = "NJ",
+  pull_func = new_jersey_pull,
+  restruct_func = new_jersey_restruct,
+  extract_func = new_jersey_extract
 )</pre></div>
 
 
@@ -133,7 +125,7 @@ changed when a dedicated server is built.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>wisconsin_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>new_jersey_scraper$clone(deep = FALSE)</pre></div>
 
 
 
