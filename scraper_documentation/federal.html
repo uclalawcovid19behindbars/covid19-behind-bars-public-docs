@@ -1,35 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Cook County COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general federal COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for cook_county_scraper"><tr><td>cook_county_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for federal_scraper"><tr><td>federal_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general Cook County COVID data</h2>
+<h2>Scraper class for general federal COVID data</h2>
 
 <h3>Description</h3>
 
-<p>Cook County Jail data is extremely sensitive to changes in the
-formatting as data is extracted from raw text. Format should be checked
-frequently. Data only reported for Cook County jail. Note that there is no
-release numbers so total confirmed may be an under-count because of the way
-it is calculates. Active + Recovered + Deaths.
+<p>Federal data comes from an api that reports information for
+official federal prisons, private facilities contracted out by federal
+government, and rrc facilities i.e. recovery rehabilitation centers. RRC
+data does not have detailed facility data only a city location. Not mentioned
+here is the location data that is available for all facilities including
+information on the kind of facility like max or min security and sex of
+residents. 
 </p>
 
 <dl>
-<dt>Staff Active</dt><dd><p>Staff currently infected by virus.</p>
+<dt>id</dt><dd><p>The facility id</p>
 </dd>
-<dt>Staff Recovered</dt><dd><p>Likely cumulative staff recovered.</p>
+<dt>staffPositiveAmt</dt><dd><p>staff active cases</p>
 </dd>
-<dt>Staff Deaths</dt><dd><p>Cumulative staff deaths.</p>
+<dt>staffRecoveries</dt><dd><p>staff recoveries</p>
 </dd>
-<dt>Residents Active</dt><dd><p>Residents currently infected by virus.</p>
+<dt>staffDeathAmt</dt><dd><p>staff deaths</p>
 </dd>
-<dt>Residents Recovered</dt><dd><p>Likely cumulative residents recovered.</p>
+<dt>inmatePositiveAmt</dt><dd><p>Residents active cases</p>
 </dd>
-<dt>Residents Deaths</dt><dd><p>Cumulative resident deaths.</p>
+<dt>inmateDeathAmt</dt><dd><p>residents deaths</p>
 </dd>
-<dt>Residents Negative</dt><dd><p>Likely cumulative negative cases.</p>
+<dt>inmateRecoveries</dt><dd><p>cumulative residents recovered</p>
+</dd>
+<dt>inmateCompletedTest</dt><dd><p>Tests adminstered, I think not individuals tested</p>
+</dd>
+<dt>inmatePendTest</dt><dd><p>Current Pending Cases</p>
+</dd>
+<dt>inmatePosTest</dt><dd><p>Cumulative Positive Cases</p>
 </dd>
 </dl>
 
@@ -37,13 +45,13 @@ it is calculates. Active + Recovered + Deaths.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Residents.Recovered, Residents.Deaths, Residents.Negative, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Staff.Confirmed, Name, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Name, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Residents.Tested, Residents.Pending, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>cook_county_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>federal_scraper</code>
 </p>
 
 
@@ -55,10 +63,10 @@ it is calculates. Active + Recovered + Deaths.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>cook_county_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>federal_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>cook_county_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>federal_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -108,15 +116,15 @@ it is calculates. Active + Recovered + Deaths.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>cook_county_scraper$new(
+<div class="r"><pre>federal_scraper$new(
   log,
-  url = "https://www.cookcountysheriff.org/covid-19-cases-at-ccdoc/",
-  id = "cook_county",
-  type = "html",
-  state = "IL",
-  pull_func = xml2::read_html,
-  restruct_func = cook_county_restruct,
-  extract_func = cook_county_extract
+  url = "https://www.bop.gov/coronavirus/",
+  id = "federal",
+  type = "json",
+  state = "federal",
+  pull_func = federal_pull,
+  restruct_func = federal_restruct,
+  extract_func = federal_extract
 )</pre></div>
 
 
@@ -133,7 +141,7 @@ it is calculates. Active + Recovered + Deaths.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>cook_county_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>federal_scraper$clone(deep = FALSE)</pre></div>
 
 
 

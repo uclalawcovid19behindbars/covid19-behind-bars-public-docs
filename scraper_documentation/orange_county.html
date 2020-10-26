@@ -1,49 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Cook County COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general orange_county COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for cook_county_scraper"><tr><td>cook_county_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for orange_county_scraper"><tr><td>orange_county_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general Cook County COVID data</h2>
+<h2>Scraper class for general orange_county COVID data</h2>
 
 <h3>Description</h3>
 
-<p>Cook County Jail data is extremely sensitive to changes in the
-formatting as data is extracted from raw text. Format should be checked
-frequently. Data only reported for Cook County jail. Note that there is no
-release numbers so total confirmed may be an under-count because of the way
-it is calculates. Active + Recovered + Deaths.
+<p>OC data comes from an html table which reports data on
+numerous statistics. Quarantine data for facilities is also provided.
 </p>
 
 <dl>
-<dt>Staff Active</dt><dd><p>Staff currently infected by virus.</p>
-</dd>
-<dt>Staff Recovered</dt><dd><p>Likely cumulative staff recovered.</p>
-</dd>
-<dt>Staff Deaths</dt><dd><p>Cumulative staff deaths.</p>
-</dd>
-<dt>Residents Active</dt><dd><p>Residents currently infected by virus.</p>
-</dd>
-<dt>Residents Recovered</dt><dd><p>Likely cumulative residents recovered.</p>
-</dd>
-<dt>Residents Deaths</dt><dd><p>Cumulative resident deaths.</p>
-</dd>
-<dt>Residents Negative</dt><dd><p>Likely cumulative negative cases.</p>
-</dd>
+<dt># Current COVID-19 Positive</dt><dd></dd>
+<dt># Inmates Recovered</dt><dd></dd>
+<dt># Inmates Positive</dt><dd></dd>
+<dt># Inmates Negative</dt><dd></dd>
+<dt># Results Pending</dt><dd></dd>
+<dt># Tests Administered</dt><dd></dd>
+<dt>Quarantine/Isolation</dt><dd></dd>
 </dl>
 
 
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Residents.Recovered, Residents.Deaths, Residents.Negative, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Staff.Confirmed, Name, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Residents.Recovered, Residents.Confirmed, Residents.Negative, Residents.Pending, Residents.Tested, Name, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>cook_county_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>orange_county_scraper</code>
 </p>
 
 
@@ -55,10 +45,10 @@ it is calculates. Active + Recovered + Deaths.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>cook_county_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>orange_county_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>cook_county_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>orange_county_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -108,15 +98,15 @@ it is calculates. Active + Recovered + Deaths.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>cook_county_scraper$new(
+<div class="r"><pre>orange_county_scraper$new(
   log,
-  url = "https://www.cookcountysheriff.org/covid-19-cases-at-ccdoc/",
-  id = "cook_county",
+  url = "https://ocsheriff.gov/about-ocsd/covid-19/covid-19-oc-jails",
+  id = "orange_county",
   type = "html",
-  state = "IL",
-  pull_func = xml2::read_html,
-  restruct_func = cook_county_restruct,
-  extract_func = cook_county_extract
+  state = "CA",
+  pull_func = orange_county_pull,
+  restruct_func = orange_county_restruct,
+  extract_func = orange_county_extract
 )</pre></div>
 
 
@@ -133,7 +123,7 @@ it is calculates. Active + Recovered + Deaths.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>cook_county_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>orange_county_scraper$clone(deep = FALSE)</pre></div>
 
 
 
