@@ -13,7 +13,8 @@
 formatting as data is extracted from raw text. Format should be checked
 frequently. Data only reported for Cook County jail. Note that there is no
 release numbers so total confirmed may be an under-count because of the way
-it is calculates. Active + Recovered + Deaths.
+it is calculates. Active + Recovered + Deaths. Historical data present in
+graph but no way to extract.
 </p>
 
 <dl>
@@ -37,7 +38,7 @@ it is calculates. Active + Recovered + Deaths.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Residents.Recovered, Residents.Deaths, Residents.Negative, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Staff.Confirmed, Name, State, Date. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Recovered, Residents.Deaths, Residents.Negative, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Staff.Confirmed, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -71,6 +72,9 @@ it is calculates. Active + Recovered + Deaths.
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="last_update"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-last_update"><code>R_GlobalEnv::generic_scraper$last_update()</code></a></span>
+</p>
+</li>
+<li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="perma_save"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-perma_save"><code>R_GlobalEnv::generic_scraper$perma_save()</code></a></span>
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="pull_raw"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-pull_raw"><code>R_GlobalEnv::generic_scraper$pull_raw()</code></a></span>

@@ -42,7 +42,7 @@ https://www.tdcj.texas.gov/covid-19/definitions.html
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Recovered, Residents.Deaths, Staff.Tested, Staff.Confirmed, Staff.Recovered, Staff.Deaths, State, Date. We are missing the following core variables for the analysis: Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Deaths, Staff.Tested, Staff.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Recovered, Residents.Recovered, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -76,6 +76,9 @@ https://www.tdcj.texas.gov/covid-19/definitions.html
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="last_update"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-last_update"><code>R_GlobalEnv::generic_scraper$last_update()</code></a></span>
+</p>
+</li>
+<li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="perma_save"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-perma_save"><code>R_GlobalEnv::generic_scraper$perma_save()</code></a></span>
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="pull_raw"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-pull_raw"><code>R_GlobalEnv::generic_scraper$pull_raw()</code></a></span>
@@ -115,8 +118,7 @@ https://www.tdcj.texas.gov/covid-19/definitions.html
 
 <div class="r"><pre>texas_statewide_scraper$new(
   log,
- 
-    url = "https://txdps.maps.arcgis.com/apps/opsdashboard/index.html#/dce4d7da662945178ad5fbf3981fa35c",
+  url = "https://www.tdcj.texas.gov/covid-19/index.html",
   id = "texas_statewide",
   type = "json",
   state = "TX",

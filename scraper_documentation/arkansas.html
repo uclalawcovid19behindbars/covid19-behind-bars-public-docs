@@ -80,7 +80,7 @@ Residents Positive Not Recovered to get total confirmed.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Residents.Tested, Residents.Recovered, Name, Residents.Confirmed, State, Date. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Tested, Residents.Recovered, Name, Residents.Confirmed, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -114,6 +114,9 @@ Residents Positive Not Recovered to get total confirmed.
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="last_update"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-last_update"><code>R_GlobalEnv::generic_scraper$last_update()</code></a></span>
+</p>
+</li>
+<li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="perma_save"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-perma_save"><code>R_GlobalEnv::generic_scraper$perma_save()</code></a></span>
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="pull_raw"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-pull_raw"><code>R_GlobalEnv::generic_scraper$pull_raw()</code></a></span>
@@ -153,13 +156,13 @@ Residents Positive Not Recovered to get total confirmed.
 
 <div class="r"><pre>arkansas_scraper$new(
   log,
-  url = "https://adc.arkansas.gov/coronavirus-covid-19-updates",
+  url = "https://doc.arkansas.gov/covid-19-updates/",
   id = "arkansas",
   state = "AR",
   type = "img",
   pull_func = function(x) {     magick::image_read(get_src_by_attr(base = x, css = "a",
-    attr = "href", attr_regex = "(?i)stats_update", date_regex = "\\d+-\\d+-\\d+"))
-    },
+    attr = "href", attr_regex = "(?i)stats.?update", date_regex =
+    "\\d+-\\d+-\\d+")) },
   restruct_func = function(x, ...) arkansas_restruct(x, ...),
   extract_func = arkansas_extract
 )</pre></div>

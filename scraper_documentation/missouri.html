@@ -1,18 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general missouri COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Missouri COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
 <table width="100%" summary="page for missouri_scraper"><tr><td>missouri_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general missouri COVID data</h2>
+<h2>Scraper class for general Missouri COVID data</h2>
 
 <h3>Description</h3>
 
-<p>Facility specific MO data comes from an image hosted on the
-page. Detailed information such as the number of deaths and the number
-tested are omitted and only reported at the state level. See the
-missouri_statewide scraper for more info.
+<p>Facility specific MO data comes from a power bi html table. 
+Cumulative cases for facilities and deaths at the state level appear to
+be no longer reported here.
 </p>
 
 <dl>
@@ -22,13 +21,9 @@ missouri_statewide scraper for more info.
 </dd>
 <dt>Staff Recovered</dt><dd><p>Staff who have recovered from infection</p>
 </dd>
-<dt>Staff Cumulative Cases</dt><dd><p>Cumulative case count among staff</p>
-</dd>
 <dt>Offender Active Cases</dt><dd><p>Current infections among residents</p>
 </dd>
 <dt>Offenders Recovered</dt><dd><p>Residents who have recovered from infection</p>
-</dd>
-<dt>Offender Cumulative Cases</dt><dd><p>cumulative case count among residents</p>
 </dd>
 </dl>
 
@@ -36,7 +31,7 @@ missouri_statewide scraper for more info.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-26 and contained the extracted columns: Name, Staff.Recovered, Staff.Confirmed, Residents.Recovered, Residents.Confirmed, State, Date. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Recovered, Residents.Recovered, Residents.Active, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
@@ -70,6 +65,9 @@ missouri_statewide scraper for more info.
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="last_update"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-last_update"><code>R_GlobalEnv::generic_scraper$last_update()</code></a></span>
+</p>
+</li>
+<li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="perma_save"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-perma_save"><code>R_GlobalEnv::generic_scraper$perma_save()</code></a></span>
 </p>
 </li>
 <li> <span class="pkg-link" data-pkg="R_GlobalEnv" data-topic="generic_scraper" data-id="pull_raw"><p><a href="../../R_GlobalEnv/html/generic_scraper.html#method-pull_raw"><code>R_GlobalEnv::generic_scraper$pull_raw()</code></a></span>
@@ -109,9 +107,9 @@ missouri_statewide scraper for more info.
 
 <div class="r"><pre>missouri_scraper$new(
   log,
-  url = "https://doc.mo.gov/media-center/newsroom/covid-19/data",
+  url = "https://doc.mo.gov/media-center/newsroom/covid-19",
   id = "missouri",
-  type = "img",
+  type = "html",
   state = "MO",
   pull_func = missouri_pull,
   restruct_func = missouri_restruct,
