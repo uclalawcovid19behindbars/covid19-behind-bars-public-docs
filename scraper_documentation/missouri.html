@@ -31,7 +31,7 @@ be no longer reported here.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Recovered, Residents.Recovered, Residents.Active, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Recovered, Residents.Recovered, Residents.Active, Staff.Confirmed, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
@@ -111,6 +111,7 @@ be no longer reported here.
   id = "missouri",
   type = "html",
   state = "MO",
+  jurisdiction = "state",
   pull_func = missouri_pull,
   restruct_func = missouri_restruct,
   extract_func = missouri_extract

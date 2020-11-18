@@ -49,7 +49,7 @@
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Confirmed, Residents.Recovered, Residents.Quarantine, Residents.Deaths, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Residents.Confirmed, Residents.Recovered, Residents.Quarantine, Residents.Deaths, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -130,6 +130,7 @@
   id = "dc",
   type = "json",
   state = "DC",
+  jurisdiction = "state",
   pull_func = dc_pull,
   restruct_func = dc_restruct,
   extract_func = dc_extract

@@ -22,7 +22,7 @@ does
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Deaths, Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Population, Residents.Quarantine, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Residents.Deaths, Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Population, Residents.Quarantine, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Active
 </p>
 
 
@@ -100,8 +100,9 @@ does
   log,
   url = "https://www1.nyc.gov/site/boc/covid-19.page",
   id = "nyc_jails",
-  type = "csv",
+  type = "manual",
   state = "NY",
+  jurisdiction = "county",
   pull_func = nyc_jails_pull,
   restruct_func = nyc_jails_restruct,
   extract_func = nyc_jails_extract

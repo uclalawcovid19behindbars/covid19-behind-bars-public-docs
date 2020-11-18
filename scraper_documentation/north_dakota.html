@@ -37,7 +37,7 @@ Data is updated frequently.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Deaths, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Tested, Staff.Tested, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Deaths, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Tested, Staff.Tested, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -117,6 +117,7 @@ Data is updated frequently.
   id = "north_dakota",
   type = "html",
   state = "ND",
+  jurisdiction = "state",
   pull_func = north_dakota_pull,
   restruct_func = north_dakota_restruct,
   extract_func = north_dakota_extract

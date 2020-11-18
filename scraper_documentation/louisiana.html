@@ -58,7 +58,7 @@ tested and not the total number of tests administered.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Confirmed, Residents.Tested, Residents.Deaths, Residents.Recovered, Staff.Confirmed, Staff.Recovered, Staff.Tested, Staff.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Confirmed, Residents.Tested, Residents.Deaths, Residents.Recovered, Staff.Confirmed, Staff.Recovered, Staff.Tested, Staff.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -138,6 +138,7 @@ tested and not the total number of tests administered.
   id = "louisiana",
   type = "html",
   state = "LA",
+  jurisdiction = "state",
   pull_func = louisiana_pull,
   restruct_func = louisiana_restruct,
   extract_func = louisiana_extract

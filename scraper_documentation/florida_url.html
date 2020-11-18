@@ -31,7 +31,7 @@ further down on the web page.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Pending, Residents.Negative, Residents.Confirmed, Staff.Confirmed, Residents.Deaths, Residents.Quarantine, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Pending, Residents.Negative, Residents.Confirmed, Staff.Confirmed, Residents.Deaths, Residents.Quarantine, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -111,6 +111,7 @@ further down on the web page.
   id = "florida_url",
   type = "html",
   state = "FL",
+  jurisdiction = "state",
   pull_func = xml2::read_html,
   restruct_func = florida_url_restruct,
   extract_func = florida_url_extract

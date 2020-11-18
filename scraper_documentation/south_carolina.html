@@ -40,7 +40,7 @@ columns at sometime in the future.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -120,6 +120,7 @@ columns at sometime in the future.
   id = "south_carolina",
   type = "html",
   state = "SC",
+  jurisdiction = "state",
   pull_func = south_carolina_pull,
   restruct_func = south_carolina_restruct,
   extract_func = south_carolina_extract

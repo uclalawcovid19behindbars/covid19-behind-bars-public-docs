@@ -34,7 +34,7 @@ to scrape html tables.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -114,6 +114,7 @@ to scrape html tables.
   id = "nebraska",
   type = "html",
   state = "NE",
+  jurisdiction = "state",
   pull_func = nebraska_pull,
   restruct_func = nebraska_restruct,
   extract_func = nebraska_extract

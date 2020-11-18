@@ -42,7 +42,7 @@ https://www.tdcj.texas.gov/covid-19/definitions.html
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Quarantine, Residents.Recovered, Staff.Confirmed, Staff.Recovered, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Deaths, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Quarantine, Residents.Recovered, Staff.Confirmed, Staff.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -122,6 +122,7 @@ https://www.tdcj.texas.gov/covid-19/definitions.html
   id = "texas",
   type = "json",
   state = "TX",
+  jurisdiction = "state",
   pull_func = texas_pull,
   restruct_func = texas_restruct,
   extract_func = texas_extract

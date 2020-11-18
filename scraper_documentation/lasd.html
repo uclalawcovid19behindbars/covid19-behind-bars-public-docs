@@ -9,30 +9,29 @@
 
 <h3>Description</h3>
 
-<p>Info comes from a Microsoft power bi app that can be
-temperamental as load times vary and Selenium can not tell when the DOM is
-ready. May need to run a couple of times to get data.
+<p>Info comes from an image file hosted on the website however
+scraping the image is extremely difficult and has required multiple
+alterations in the past. Need to frequently monitor this scraper for errors.
 </p>
 
 <dl>
-<dt>Personnel Currently Quarantined</dt><dd></dd>
-<dt>Personnel Currently High Risk</dt><dd></dd>
-<dt>Returned to Work</dt><dd><p>Not neccesarily positive</p>
+<dt>Residents.Confirmed</dt><dd></dd>
+<dt>Residents.Recovered </dt><dd></dd>
+<dt>Residents.Deaths</dt><dd><p>Not neccesarily positive</p>
 </dd>
-<dt>Personnel Affected Since Inception</dt><dd></dd>
-<dt>Prof. Confirmed</dt><dd><p>Staff type distinction of confirmed cases</p>
-</dd>
-<dt>Sworn Confirmed</dt><dd><p>Staff type distinction of confirmed cases</p>
-</dd>
-<dt>Total Confirmed</dt><dd><p>Total staff confirmed cases</p>
-</dd>
+<dt>Residents.Quarantine</dt><dd></dd>
+<dt>neg.asymp</dt><dd></dd>
+<dt>neg.symp</dt><dd></dd>
+<dt>pos.asymp</dt><dd></dd>
+<dt>pos.symp</dt><dd></dd>
+<dt>Residents.Population</dt><dd></dd>
 </dl>
 
 
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Confirmed, Residents.Recovered, Residents.Deaths, Residents.Quarantine, Residents.Population, Residents.Negative, Residents.Active, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine
+<p>The last run of the scraper was on 2020-11-17 and contained the extracted columns: Residents.Confirmed, Residents.Recovered, Residents.Deaths, Residents.Quarantine, Residents.Population, Residents.Negative, Residents.Active, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine
 </p>
 
 
@@ -112,6 +111,7 @@ ready. May need to run a couple of times to get data.
   id = "lasd",
   type = "img",
   state = "CA",
+  jurisdiction = "county",
   pull_func = lasd_pull,
   restruct_func = lasd_restruct,
   extract_func = lasd_extract

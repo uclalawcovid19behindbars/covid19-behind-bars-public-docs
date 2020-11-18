@@ -22,7 +22,7 @@ does
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Confirmed, Residents.Active, Residents.Deaths, Residents.Recovered, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Confirmed, Residents.Active, Residents.Deaths, Residents.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
@@ -100,8 +100,9 @@ does
   log,
   url = "https://cd.nm.gov/covid-19-updates/",
   id = "new_mexico",
-  type = "csv",
+  type = "manual",
   state = "NM",
+  jurisdiction = "state",
   pull_func = new_mexico_pull,
   restruct_func = new_mexico_restruct,
   extract_func = new_mexico_extract

@@ -51,7 +51,7 @@ but rather the number of residents tested.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Pending, Residents.Deaths, Residents.Recovered, Staff.Confirmed, Staff.Deaths, Staff.Recovered, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Pending, Residents.Deaths, Residents.Recovered, Staff.Confirmed, Staff.Deaths, Staff.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -131,6 +131,7 @@ but rather the number of residents tested.
   id = "alabama",
   type = "json",
   state = "AL",
+  jurisdiction = "state",
   pull_func = alabama_pull,
   restruct_func = alabama_restruct,
   extract_func = alabama_extract

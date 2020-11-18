@@ -29,7 +29,7 @@ administered not individuals tested.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Tested, Residents.Confirmed, Staff.Tested, Staff.Confirmed, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Residents.Tested, Residents.Confirmed, Staff.Tested, Staff.Confirmed, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -110,6 +110,7 @@ administered not individuals tested.
   id = "polk_county",
   type = "img",
   state = "IA",
+  jurisdiction = "county",
   pull_func = polk_county_pull,
   restruct_func = polk_county_restruct,
   extract_func = polk_county_extract

@@ -22,7 +22,7 @@ does
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Staff.Recovered, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Staff.Recovered, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -100,8 +100,9 @@ does
   log,
   url = "https://doc.delaware.gov/assets/documents/Confirmed_COVID_Cases.pdf",
   id = "delaware",
-  type = "csv",
+  type = "manual",
   state = "DE",
+  jurisdiction = "state",
   pull_func = delaware_pull,
   restruct_func = delaware_restruct,
   extract_func = delaware_extract

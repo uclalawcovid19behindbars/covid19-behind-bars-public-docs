@@ -45,7 +45,7 @@ positive nor negative results.</p>
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Tested, Residents.Pending, Residents.Negative, Residents.Confirmed, Residents.Active, Residents.Quarantine, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Tested, Residents.Pending, Residents.Negative, Residents.Confirmed, Residents.Active, Residents.Quarantine, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tadmin, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Population
 </p>
 
 
@@ -126,6 +126,7 @@ positive nor negative results.</p>
   id = "hawaii",
   state = "HI",
   type = "img",
+  jurisdiction = "state",
   pull_func = function(x) {     get_src_by_attr(x, "img", attr = "src", attr_regex =
     "(?i)Inmate-Test-Report") %&gt;% {         gsub("-[0-9]+x[0-9]+", "", .)     } %&gt;%
     magick::image_read() },

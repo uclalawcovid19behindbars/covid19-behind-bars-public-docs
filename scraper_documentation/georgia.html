@@ -55,7 +55,7 @@
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -135,6 +135,7 @@
   id = "georgia",
   type = "json",
   state = "GA",
+  jurisdiction = "state",
   pull_func = georgia_pull,
   restruct_func = function(x) as_tibble(x$features$attributes),
   extract_func = function(x) {     x %&gt;% select(Name = Facility_Name, Staff.Confirmed

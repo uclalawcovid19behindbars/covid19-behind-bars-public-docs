@@ -24,7 +24,7 @@ html of the site. Data is scrapped from tables.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Staff.Confirmed, Name, Staff.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Staff.Confirmed, Name, Staff.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -104,6 +104,7 @@ html of the site. Data is scrapped from tables.
   id = "new_york_statewide",
   type = "html",
   state = "NY",
+  jurisdiction = "state",
   pull_func = new_york_statewide_pull,
   restruct_func = new_york_statewide_restruct,
   extract_func = new_york_statewide_extract

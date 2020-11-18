@@ -30,7 +30,7 @@ confirmed cases in contract facilities.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Confirmed, Staff.Confirmed, Residents.Deaths, Staff.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Confirmed, Staff.Confirmed, Residents.Deaths, Staff.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -110,6 +110,7 @@ confirmed cases in contract facilities.
   id = "montana",
   type = "html",
   state = "MT",
+  jurisdiction = "state",
   pull_func = montana_pull,
   restruct_func = montana_restruct,
   extract_func = montana_extract

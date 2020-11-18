@@ -22,7 +22,7 @@ does
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Recovered, Residents.Recovered, Residents.Active, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-10-02 and contained the extracted columns: Name, Staff.Recovered, Residents.Recovered, Residents.Active, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
@@ -100,8 +100,9 @@ does
   log,
   url = "http://corrections.wyo.gov/",
   id = "wyoming",
-  type = "csv",
+  type = "manual",
   state = "WY",
+  jurisdiction = "state",
   pull_func = wyoming_pull,
   restruct_func = wyoming_restruct,
   extract_func = wyoming_extract

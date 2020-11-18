@@ -36,7 +36,7 @@ reported has changed over time.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Staff.Tested, Staff.Negative, Staff.Confirmed, Staff.Recovered, Residents.Tested, Residents.Negative, Residents.Confirmed, Residents.Pending, Residents.Recovered, Residents.Deaths, Residents.Population, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Staff.Tested, Staff.Negative, Staff.Confirmed, Staff.Recovered, Residents.Tested, Residents.Negative, Residents.Confirmed, Residents.Pending, Residents.Recovered, Residents.Deaths, Residents.Population, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Tadmin, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Active
 </p>
 
 
@@ -116,6 +116,7 @@ reported has changed over time.
   id = "virginia_beach",
   type = "html",
   state = "VA",
+  jurisdiction = "county",
   pull_func = virginia_beach_pull,
   restruct_func = virginia_beach_restruct,
   extract_func = virginia_beach_extract

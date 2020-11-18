@@ -34,7 +34,7 @@ test number appears to be residents tested rather than tests administered.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Negative, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Negative, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Staff.Recovered, Staff.Tested, Residents.Tadmin, Staff.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -115,6 +115,7 @@ test number appears to be residents tested rather than tests administered.
   id = "utah",
   type = "img",
   state = "UT",
+  jurisdiction = "state",
   pull_func = utah_pull,
   restruct_func = utah_restruct,
   extract_func = utah_extract

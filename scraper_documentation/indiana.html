@@ -46,7 +46,7 @@ the facility so recovered can be higher than confirmed.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Staff.Tested, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Quarantine, Residents.Tested, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Tested, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Quarantine, Residents.Tested, Residents.Confirmed, Residents.Recovered, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -126,6 +126,7 @@ the facility so recovered can be higher than confirmed.
   id = "indiana",
   type = "img",
   state = "IN",
+  jurisdiction = "state",
   pull_func = indiana_pull,
   restruct_func = indiana_restruct,
   extract_func = indiana_extract

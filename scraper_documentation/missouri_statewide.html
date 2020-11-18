@@ -35,7 +35,7 @@ non-facility information for staff.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-05 and contained the extracted columns: Name, Staff.Deaths, Residents.Deaths, Residents.Tested, Staff.Confirmed, Staff.Recovered, State, Date, id, source. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Recovered, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-05 and contained the extracted columns: Name, Staff.Deaths, Residents.Deaths, Residents.Tested, Staff.Confirmed, Staff.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Recovered, Staff.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -115,6 +115,7 @@ non-facility information for staff.
   id = "missouri_statewide",
   type = "html",
   state = "MO",
+  jurisdiction = "state",
   pull_func = missouri_statewide_pull,
   restruct_func = missouri_statewide_restruct,
   extract_func = missouri_statewide_extract

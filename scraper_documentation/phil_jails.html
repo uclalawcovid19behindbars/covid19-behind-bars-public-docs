@@ -26,7 +26,7 @@ in an api.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Residents.Population, Residents.Active, Residents.Confirmed, Name, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine
+<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Residents.Population, Residents.Active, Residents.Confirmed, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine
 </p>
 
 
@@ -107,6 +107,7 @@ in an api.
   id = "phil_jails",
   type = "json",
   state = "PA",
+  jurisdiction = "county",
   pull_func = phil_jails_pull,
   restruct_func = phil_jails_restruct,
   extract_func = phil_jails_extract

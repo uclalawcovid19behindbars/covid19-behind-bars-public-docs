@@ -16,7 +16,7 @@ data.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Quarantine, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Deaths, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-10-19 and contained the extracted columns: Name, Residents.Confirmed, Residents.Recovered, Residents.Quarantine, Staff.Confirmed, Staff.Recovered, Staff.Deaths, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -96,6 +96,7 @@ data.
   id = "oklahoma",
   state = "OK",
   type = "html",
+  jurisdiction = "state",
   pull_func = xml2::read_html,
   restruct_func = oklahoma_restruct,
   extract_func = oklahoma_extract

@@ -45,7 +45,7 @@ residents.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-12 and contained the extracted columns: Name, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Residents.Tested, Residents.Pending, State, Date, id, source. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-14 and contained the extracted columns: Name, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Residents.Tested, Residents.Pending, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -125,6 +125,7 @@ residents.
   id = "federal",
   type = "json",
   state = "federal",
+  jurisdiction = "federal",
   pull_func = federal_pull,
   restruct_func = federal_restruct,
   extract_func = federal_extract
