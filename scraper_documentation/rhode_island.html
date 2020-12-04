@@ -22,7 +22,7 @@ does
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Name, Residents.Confirmed, Staff.Confirmed, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
@@ -98,9 +98,9 @@ does
 
 <div class="r"><pre>rhode_island_scraper$new(
   log,
-  url = "http://www.doc.ri.gov/index.php",
+  url = "http://www.doc.ri.gov/covid-19/",
   id = "rhode_island",
-  type = "manual",
+  type = "csv",
   state = "RI",
   jurisdiction = "state",
   pull_func = rhode_island_pull,

@@ -1,48 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general virginia_beach COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general North Carolina COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for virginia_beach_scraper"><tr><td>virginia_beach_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for north_carolina_deaths_scraper"><tr><td>north_carolina_deaths_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general virginia_beach COVID data</h2>
+<h2>Scraper class for general North Carolina COVID data</h2>
 
 <h3>Description</h3>
 
-<p>Virginia Beach reports data in two html tables one for staff
-and another for residents. Data is reported regularly and the columns 
-reported has changed over time.
+<p>NC has data in an isolated html table which requires minimal
+cleaning. Guidelines and definitions for facilities are found here
+https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-covid-19
 </p>
 
 <dl>
-<dt>INMATES TESTED</dt><dd></dd>
-<dt>INMATE NEGATIVE RESULTS</dt><dd></dd>
-<dt>INMATE POSITIVE RESULTS</dt><dd></dd>
-<dt>INMATE RESULTS PENDING</dt><dd></dd>
-<dt>ACTIVE INMATE CASES</dt><dd></dd>
-<dt>INMATES CLEARED OR RELEASED</dt><dd></dd>
-<dt>INMATE DEATHS DUE TO COVID-19</dt><dd></dd>
-<dt>TOTAL INMATES (CURRENT JAIL POPULATION)</dt><dd></dd>
-<dt>DEPUTIES TESTED</dt><dd></dd>
-<dt>DEPUTY NEGATIVE RESULTS</dt><dd></dd>
-<dt>DEPUTY POSITIVE RESULTS</dt><dd></dd>
-<dt>DEPUTY RESULTS PENDING</dt><dd></dd>
-<dt>ACTIVE DEPUTY CASES</dt><dd></dd>
-<dt>DEPUTIES CLEARED</dt><dd></dd>
-<dt>TOTAL DEPUTIES</dt><dd></dd>
+<dt>Facility</dt><dd><p>The facility name</p>
+</dd>
+<dt>CumulativeOffenderTests</dt><dd><p>All tests</p>
+</dd>
+<dt>OffendersTested</dt><dd><p>Number of individuals tested</p>
+</dd>
+<dt>Positive</dt><dd><p>Individuals positive, probably not cumulative as confirmed is sometimes less than recovered</p>
+</dd>
+<dt>Negative</dt><dd><p>Individuals Negative</p>
+</dd>
+<dt>PresumedRecovered</dt><dd><p>presumed recovered following NCDHHS guidance</p>
+</dd>
+<dt>ActiveCases</dt><dd><p>Active residents with infection who are also quarantined</p>
+</dd>
 </dl>
 
 
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Staff.Tested, Staff.Negative, Staff.Confirmed, Staff.Recovered, Residents.Tested, Residents.Negative, Residents.Confirmed, Residents.Pending, Residents.Recovered, Residents.Deaths, Residents.Population, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Tadmin, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Active
+<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Name, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>virginia_beach_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>north_carolina_deaths_scraper</code>
 </p>
 
 
@@ -54,10 +53,10 @@ reported has changed over time.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>virginia_beach_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>north_carolina_deaths_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>virginia_beach_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>north_carolina_deaths_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -110,16 +109,17 @@ reported has changed over time.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>virginia_beach_scraper$new(
+<div class="r"><pre>north_carolina_deaths_scraper$new(
   log,
-  url = "https://www.vbso.net/coronavirus",
-  id = "virginia_beach",
+ 
+    url = "https://www.ncdps.gov/our-organization/adult-correction/prisons/prisons-info-covid-19",
+  id = "north_carolina_deaths",
   type = "html",
-  state = "VA",
-  jurisdiction = "county",
-  pull_func = virginia_beach_pull,
-  restruct_func = virginia_beach_restruct,
-  extract_func = virginia_beach_extract
+  state = "NC",
+  jurisdiction = "state",
+  pull_func = north_carolina_deaths_pull,
+  restruct_func = north_carolina_deaths_restruct,
+  extract_func = north_carolina_deaths_extract
 )</pre></div>
 
 
@@ -136,7 +136,7 @@ reported has changed over time.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>virginia_beach_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>north_carolina_deaths_scraper$clone(deep = FALSE)</pre></div>
 
 
 

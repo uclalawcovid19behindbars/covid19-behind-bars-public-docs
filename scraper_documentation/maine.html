@@ -22,7 +22,7 @@ does
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Staff.Recovered, Residents.Recovered, Residents.Tested, Residents.Negative, Residents.Pending, Residents.Population, Residents.Deaths, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tadmin, Staff.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Active
+<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Name, Residents.Tadmin, Residents.Confirmed, Residents.Population, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Active
 </p>
 
 
@@ -98,10 +98,9 @@ does
 
 <div class="r"><pre>maine_scraper$new(
   log,
- 
-    url = "https://www.maine.gov/corrections/sites/maine.gov.corrections/files/inline-files/MDOC%20COVID19WebDashboard11-9-2020.pdf",
+  url = "https://www.maine.gov/corrections/covid-19-resources",
   id = "maine",
-  type = "manual",
+  type = "pdf",
   state = "ME",
   jurisdiction = "state",
   pull_func = maine_pull,

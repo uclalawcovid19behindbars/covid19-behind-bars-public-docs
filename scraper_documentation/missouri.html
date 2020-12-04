@@ -31,7 +31,7 @@ be no longer reported here.
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-16 and contained the extracted columns: Name, Staff.Recovered, Residents.Recovered, Residents.Active, Staff.Confirmed, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
+<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Name, Staff.Recovered, Residents.Active, Residents.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population
 </p>
 
 
@@ -107,9 +107,9 @@ be no longer reported here.
 
 <div class="r"><pre>missouri_scraper$new(
   log,
-  url = "https://doc.mo.gov/media-center/newsroom/covid-19",
+  url = "https://doc.mo.gov/media-center/newsroom/covid-19/data",
   id = "missouri",
-  type = "html",
+  type = "img",
   state = "MO",
   jurisdiction = "state",
   pull_func = missouri_pull,

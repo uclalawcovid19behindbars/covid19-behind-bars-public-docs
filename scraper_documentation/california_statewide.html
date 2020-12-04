@@ -1,48 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general virginia_beach COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general california_statewide COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for virginia_beach_scraper"><tr><td>virginia_beach_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for california_statewide_scraper"><tr><td>california_statewide_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general virginia_beach COVID data</h2>
+<h2>Scraper class for general california_statewide COVID data</h2>
 
 <h3>Description</h3>
 
-<p>Virginia Beach reports data in two html tables one for staff
-and another for residents. Data is reported regularly and the columns 
-reported has changed over time.
+<p>california_statewide data scraped from rendered power BI iframe. Testing
+data is also available at the facility level but will need to be scraped
+separately. Note that time series data for the state exists for comparison.
 </p>
 
 <dl>
-<dt>INMATES TESTED</dt><dd></dd>
-<dt>INMATE NEGATIVE RESULTS</dt><dd></dd>
-<dt>INMATE POSITIVE RESULTS</dt><dd></dd>
-<dt>INMATE RESULTS PENDING</dt><dd></dd>
-<dt>ACTIVE INMATE CASES</dt><dd></dd>
-<dt>INMATES CLEARED OR RELEASED</dt><dd></dd>
-<dt>INMATE DEATHS DUE TO COVID-19</dt><dd></dd>
-<dt>TOTAL INMATES (CURRENT JAIL POPULATION)</dt><dd></dd>
-<dt>DEPUTIES TESTED</dt><dd></dd>
-<dt>DEPUTY NEGATIVE RESULTS</dt><dd></dd>
-<dt>DEPUTY POSITIVE RESULTS</dt><dd></dd>
-<dt>DEPUTY RESULTS PENDING</dt><dd></dd>
-<dt>ACTIVE DEPUTY CASES</dt><dd></dd>
-<dt>DEPUTIES CLEARED</dt><dd></dd>
-<dt>TOTAL DEPUTIES</dt><dd></dd>
+<dt>Institution Name</dt><dd><p>The facility name.</p>
+</dd>
+<dt>Confirmed</dt><dd><p>The number of confimed cases among residents.</p>
+</dd>
+<dt>New In Last 14 Days</dt><dd><p>The number of new cases among residents.</p>
+</dd>
+<dt>Active in Custody</dt><dd><p>The number of active cases.</p>
+</dd>
+<dt>Released While Active</dt><dd><p>Residents released after testing positive.</p>
+</dd>
+<dt>Resolved</dt><dd><p>Recovered cases.</p>
+</dd>
+<dt>Deaths</dt><dd><p>Resident Deaths.</p>
+</dd>
 </dl>
 
 
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Staff.Tested, Staff.Negative, Staff.Confirmed, Staff.Recovered, Residents.Tested, Residents.Negative, Residents.Confirmed, Residents.Pending, Residents.Recovered, Residents.Deaths, Residents.Population, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Deaths, Residents.Tadmin, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Active
+<p>The last run of the scraper was on 2020-11-30 and contained the extracted columns: Name, Residents.Tadmin, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Confirmed, Residents.Confirmed, Staff.Deaths, Residents.Deaths, Staff.Recovered, Residents.Recovered, Staff.Tested, Residents.Tested, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>virginia_beach_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>california_statewide_scraper</code>
 </p>
 
 
@@ -54,10 +53,10 @@ reported has changed over time.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>virginia_beach_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>california_statewide_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>virginia_beach_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>california_statewide_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -110,16 +109,16 @@ reported has changed over time.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>virginia_beach_scraper$new(
+<div class="r"><pre>california_statewide_scraper$new(
   log,
-  url = "https://www.vbso.net/coronavirus",
-  id = "virginia_beach",
-  type = "html",
-  state = "VA",
-  jurisdiction = "county",
-  pull_func = virginia_beach_pull,
-  restruct_func = virginia_beach_restruct,
-  extract_func = virginia_beach_extract
+  url = "https://www.cdcr.ca.gov/covid19/updates/",
+  id = "california_statewide",
+  type = "img",
+  state = "CA",
+  jurisdiction = "state",
+  pull_func = california_statewide_pull,
+  restruct_func = california_statewide_restruct,
+  extract_func = california_statewide_extract
 )</pre></div>
 
 
@@ -136,7 +135,7 @@ reported has changed over time.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>virginia_beach_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>california_statewide_scraper$clone(deep = FALSE)</pre></div>
 
 
 
