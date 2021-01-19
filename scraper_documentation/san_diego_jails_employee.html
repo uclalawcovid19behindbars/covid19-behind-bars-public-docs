@@ -1,63 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general Alabama COVID data</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scraper class for general San Diego County jails COVID data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
-<table width="100%" summary="page for alabama_scraper"><tr><td>alabama_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for san_diego_jails_employee_scraper"><tr><td>san_diego_jails_employee_scraper</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Scraper class for general Alabama COVID data</h2>
-
-<h3>Description</h3>
-
-<p>Alabama scraper comes directly from an api. Minimal cleaning
-required. Note that Alabama does not report the number of tests administered
-but rather the number of residents tested.
-</p>
-
-<dl>
-<dt>Facility</dt><dd><p>The facility name.</p>
-</dd>
-<dt>Type</dt><dd><p>The type of facility i.e. private, work-release, major, etc</p>
-</dd>
-<dt>Street</dt><dd><p>Address</p>
-</dd>
-<dt>City</dt><dd><p>City</p>
-</dd>
-<dt>State</dt><dd><p>State</p>
-</dd>
-<dt>Zip</dt><dd><p>Zip</p>
-</dd>
-<dt>ShortName</dt><dd><p>Facility alternative name</p>
-</dd>
-<dt>Inmate_Tested</dt><dd><p>The number of inmates tested rather than total tests administered.</p>
-</dd>
-<dt>Inmate_Positive</dt><dd><p>Cummulative Inmates Tested</p>
-</dd>
-<dt>Inmate_Pending</dt><dd><p>Inmate_Pending</p>
-</dd>
-<dt>Inmate_Recovered</dt><dd><p>Cummulative Inmates Recovered</p>
-</dd>
-<dt>Inmate_Death</dt><dd><p>Cumulative Deaths</p>
-</dd>
-<dt>Employee_Positive</dt><dd><p>Employees Positive</p>
-</dd>
-<dt>Employee_Recovered</dt><dd><p>Employees Recovered</p>
-</dd>
-<dt>Employee_Death</dt><dd><p>Employees Death</p>
-</dd>
-</dl>
-
-
+<h2>Scraper class for general San Diego County jails COVID data</h2>
 
 <h3>Details</h3>
 
-<p>The last run of the scraper was on 2021-01-11 and contained the extracted columns: Name, Residents.Tested, Residents.Confirmed, Residents.Pending, Residents.Deaths, Residents.Recovered, Staff.Confirmed, Staff.Deaths, Staff.Recovered, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Staff.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
+<p>The last run of the scraper was on 2021-01-11 and contained the extracted columns: Staff.Confirmed, Staff.Recovered, Staff.Deaths, Name, State, Date, id, source, jurisdiction. We are missing the following core variables for the analysis: Residents.Confirmed, Residents.Deaths, Residents.Recovered, Staff.Tested, Residents.Tested, Residents.Tadmin, Staff.Negative, Residents.Negative, Staff.Pending, Residents.Pending, Staff.Quarantine, Residents.Quarantine, Residents.Population, Residents.Active
 </p>
 
 
 <h3>Super class</h3>
 
-<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>alabama_scraper</code>
+<p><code>R_GlobalEnv::generic_scraper</code> -&gt; <code>san_diego_jails_employee_scraper</code>
 </p>
 
 
@@ -69,10 +27,10 @@ but rather the number of residents tested.
 
 
 <ul>
-<li> <p><a href="#method-new"><code>alabama_scraper$new()</code></a>
+<li> <p><a href="#method-new"><code>san_diego_jails_employee_scraper$new()</code></a>
 </p>
 </li>
-<li> <p><a href="#method-clone"><code>alabama_scraper$clone()</code></a>
+<li> <p><a href="#method-clone"><code>san_diego_jails_employee_scraper$clone()</code></a>
 </p>
 </li></ul>
 
@@ -140,16 +98,16 @@ but rather the number of residents tested.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>alabama_scraper$new(
+<div class="r"><pre>san_diego_jails_employee_scraper$new(
   log,
-  url = "http://www.doc.alabama.gov/covid19news",
-  id = "alabama",
-  type = "json",
-  state = "AL",
-  jurisdiction = "state",
-  pull_func = alabama_pull,
-  restruct_func = alabama_restruct,
-  extract_func = alabama_extract
+  url = "https://www.sdsheriff.net/",
+  id = "san_diego_jails_employee",
+  type = "img",
+  state = "CA",
+  jurisdiction = "county",
+  pull_func = san_diego_jails_employee_pull,
+  restruct_func = san_diego_jails_employee_restruct,
+  extract_func = san_diego_jails_employee_extract
 )</pre></div>
 
 
@@ -166,7 +124,7 @@ but rather the number of residents tested.
 
 <h5>Usage</h5>
 
-<div class="r"><pre>alabama_scraper$clone(deep = FALSE)</pre></div>
+<div class="r"><pre>san_diego_jails_employee_scraper$clone(deep = FALSE)</pre></div>
 
 
 
